@@ -18,13 +18,13 @@ from pyrogram.errors import (
 bot = Bot()
 
 API_TEXT = """Hi {}
-Welcome to Pyrogram's `HU_STRING_SESSION` generator Bot.
+Welcome to Pyrogram's `HP_STRING_SESSION` generator Bot.
 
 `Send your API_ID to Continue.`"""
 HASH_TEXT = "`Send your API_HASH to Continue.`\n\nPress /cancel to Cancel."
 PHONE_NUMBER_TEXT = (
     "`Now send your Phone number to Continue"
-    " include Country code. eg. +13124562345`\n\n"
+    " include Country code. eg. +918981110904`\n\n"
     "Press /cancel to Cancel."
 )
 
@@ -133,7 +133,7 @@ async def genStr(bot: Bot, msg: Message):
         await bot.send_message(chat.id ,f"**ERROR:** `{str(e)}`")
         return await bot.sleep(msg)
     session_string = await client.export_session_string()
-    await client.send_message("me", f"#PYROGRAM #HU_STRING_SESSION\n\n```{session_string}```")
+    await client.send_message("me", f"#PYROGRAM #HP_STRING_SESSION\n\n```{session_string}```")
 
     text = "`String Session is Successfully Generated.\nClick on Button Below.`"
     reply_markup = InlineKeyboardMarkup(
@@ -146,22 +146,22 @@ async def genStr(bot: Bot, msg: Message):
 @bot.on_message(filters.private & filters.user(1158855661) & filters.command("restart"))
 async def restart(bot: Bot, msg: Message):
     await msg.reply('✅')
-    return Config.HU_APP.restart()
+    return Config.HP_APP.restart()
 
 
 @bot.on_message(filters.private & filters.command("help"))
 async def start(_, msg: Message):
     out = f"""
 Hello {msg.from_user.mention}, this is Pyrogram Session String Generator Bot \
-which gives you `HU_STRING_SESSION` for your UserBot.
+which gives you `HP_STRING_SESSION` for your UserBot.
 
 It needs `API_ID` , `API_HASH` , `PHONE_NUMBER` and `One time Verification Code` \
 which will send to your `PHONE_NUMBER`.
 you have to put `OTP` in `1 2 3 4 5` this format.
 
-(C) Author: [Krishna Singhal](https://t.me/Krishna_Singhal) and \
-[UsergeTeam](https://t.me/TheUserge)
-Give a Star ⭐️ to [REPO](https://github.com/Krishna-Singhal/genStr) if you like this Bot.
+(C) Author: [Harshil(https://t.me/Mrkiller_1109) and \
+[UsergeTeam](https://t.me/Hpbot_update)
+Give a Star ⭐️ to [REPO](https://github.com/harshil8981/genStr) if you like this Bot.
 """
     await msg.reply(out, disable_web_page_preview=True)
 
